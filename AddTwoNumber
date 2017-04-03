@@ -1,0 +1,22 @@
+package practicePackage;
+
+import java.util.Scanner;
+
+public class AddTwoNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int a,b,c;
+Scanner scan = new Scanner(System.in);
+System.out.print("Enter a number for a");
+a=scan.nextInt();
+System.out.print("Enter a number for b");
+b=scan.nextInt();
+c=a+b;
+System.out.println(c);
+
+
+
+	}
+
+}
