@@ -1,0 +1,134 @@
+package homeWorkDay2;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class IrctcReg {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		//Launch Driver	
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+
+		//Launch URL
+		driver.get("https://www.irctc.co.in/eticketing/loginHome.jsf");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//TO Max
+		driver.manage().window().maximize();
+		// TODO Auto-generated method stub
+
+		//click Sign Up
+		driver.findElementByLinkText("Sign up").click();
+
+		//Enter the UserName
+		driver.findElementById("userRegistrationForm:userName").sendKeys("Gautham1993");
+
+		//Enter the Password
+		driver.findElementById("userRegistrationForm:password").sendKeys("Password@1");
+
+		//Confirm Password
+		driver.findElementById("userRegistrationForm:confpasword").sendKeys("Password@1");		
+
+		//select drop down
+		driver.findElementById("userRegistrationForm:securityQ").click();
+		WebElement dd1 = driver.findElementById("userRegistrationForm:securityQ");
+
+		Select Dropdown = new Select(dd1);
+		Dropdown.selectByVisibleText("What is your pet name?");
+
+		//enter security answer
+		driver.findElementById("userRegistrationForm:securityAnswer").sendKeys("juppi");
+
+		//Select Language Drop down
+		driver.findElementById("userRegistrationForm:prelan").click();
+		WebElement dd2 = driver.findElementById("userRegistrationForm:prelan");
+
+		Select Dropdown1 = new Select(dd2);
+		Dropdown1.selectByVisibleText("English");
+
+		//Enter FirstName
+		driver.findElementById("userRegistrationForm:firstName").sendKeys("Gautham");
+
+		//Enter LastName
+		driver.findElementById("userRegistrationForm:lastName").sendKeys("Panchatcharam");
+
+		//Select Gender
+		driver.findElementById("userRegistrationForm:gender:0").click();
+
+		//select Martial Status
+		driver.findElementById("userRegistrationForm:maritalStatus:0").click();
+
+		//Select Day Drop down
+		driver.findElementById("userRegistrationForm:dobDay").click();
+		WebElement dd3 = driver.findElementById("userRegistrationForm:dobDay");
+		Select Dropdown2 = new Select(dd3);
+		Dropdown2.selectByVisibleText("04");
+
+		//Select Day Drop down
+		driver.findElementById("userRegistrationForm:dobMonth").click();
+		WebElement dd4 = driver.findElementById("userRegistrationForm:dobMonth");
+		Select Dropdown3 = new Select(dd4);
+		Dropdown3.selectByVisibleText("MAR");
+
+		//Select Year Drop down
+		driver.findElementById("userRegistrationForm:dateOfBirth").click();
+		WebElement dd5 = driver.findElementById("userRegistrationForm:dateOfBirth");
+		Select Dropdown4 = new Select(dd5);
+		Dropdown4.selectByVisibleText("1993");
+
+		//Select oCCUPATION Drop down
+		driver.findElementById("userRegistrationForm:occupation").click();
+		WebElement dd10 = driver.findElementById("userRegistrationForm:occupation");
+		Select Dropdown11 = new Select(dd10);
+		Dropdown11.selectByVisibleText("Government");
+
+
+		//enter email id
+		driver.findElementById("userRegistrationForm:email").sendKeys("gauthamtitans@gmail.com");
+
+		//enter Mobile Number
+		driver.findElementById("userRegistrationForm:mobile").sendKeys("9626663906");
+
+		//Select Nationality Drop down
+		driver.findElementById("userRegistrationForm:nationalityId").click();
+		WebElement dd6 = driver.findElementById("userRegistrationForm:nationalityId");
+		Select Dropdown5 = new Select(dd6);
+		Dropdown5.selectByValue("94");
+
+		//enter Door Number
+		driver.findElementById("userRegistrationForm:address").sendKeys("01");
+
+		//Select Country Drop down
+		driver.findElementById("userRegistrationForm:countries").click();
+		WebElement dd7 = driver.findElementById("userRegistrationForm:countries");
+		Select Dropdown6 = new Select(dd7);
+		Dropdown6.selectByVisibleText("India");
+
+		//enter PINCODE
+		driver.findElementById("userRegistrationForm:pincode").sendKeys("631001");
+		Thread.sleep(5000);
+
+
+		//Select City Drop downs
+		driver.findElementById("userRegistrationForm:cityName").click();
+		WebElement dd8 = driver.findElementById("userRegistrationForm:cityName");
+		Select Dropdown7 = new Select(dd8);
+		Dropdown7.selectByIndex(1);
+
+		//Select PostOffice Drop down
+		driver.findElementById("userRegistrationForm:postofficeName").click();
+		WebElement dd9 = driver.findElementById("userRegistrationForm:postofficeName");
+		Select Dropdown8 = new Select(dd9);
+		Dropdown8.selectByValue("Arakkonam H.O");
+
+		//enter phone
+		driver.findElementById("userRegistrationForm:landline").sendKeys("04177-238090");
+
+		//enter PINCODE
+		driver.findElementById("userRegistrationForm:resAndOff:0").click();
+	}
+
+}
