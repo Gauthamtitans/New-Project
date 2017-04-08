@@ -1,0 +1,44 @@
+package week2.day1;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FrameAlerts {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	
+		
+		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_prompt");
+		
+		driver.switchTo().frame("iframeResult");
+		driver.findElementByXPath("/html/body/button").click();
+		
+		Alert popup=driver.switchTo().alert();
+		Thread.sleep(5000);
+		popup.sendKeys("SteveJobs");
+		Thread.sleep(5000);
+		popup.accept();
+		
+		System.out.println(driver.findElementById("demo").getText());
+		
+		String txt = driver.findElementById("demo").getText();
+		
+		if (txt.contains("SteveJobs")) {
+			System.out.println("Text matched");
+		}
+		else
+		{
+			System.out.println("Text not matched");
+		}
+		
+
+	}
+
+}
