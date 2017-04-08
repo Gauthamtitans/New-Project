@@ -1,0 +1,50 @@
+package week2.day1;
+
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WindowHandle {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	
+		
+		driver.get("https://www.irctc.co.in/eticketing/loginHome.jsf");	
+		
+		driver.findElementByLinkText("Contact Us").click();
+		
+		Set<String> allHandles = driver.getWindowHandles();
+		System.out.println(allHandles.size());
+		
+		for (String eachHandle : allHandles) {
+			System.out.println(eachHandle);
+			driver.switchTo().window(eachHandle);
+		}
+
+		  System.out.println(driver.getTitle());
+		  driver.close();
+		  
+			Set<String> allHandles1 = driver.getWindowHandles();
+			System.out.println(allHandles1.size());
+			
+			for (String eachHandle : allHandles1) {
+				System.out.println(eachHandle);
+				driver.switchTo().window(eachHandle);
+			}
+           
+			System.out.println(driver.getTitle());
+			driver.findElementByLinkText("Sign up").click();
+		  
+	}
+	
+	  
+	
+	
+	 
+
+}
